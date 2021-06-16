@@ -99,7 +99,7 @@ for(let i=0; i<years.length; i++){
 }
 return cupWinners;
 }
-console.log(getWinnersByYear(fifaData, getYears, getWinners));
+//console.log(getWinnersByYear(fifaData, getYears, getWinners));
 
 
 
@@ -113,10 +113,13 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(getFinalsCB) {
+const average = getFinalsCB.reduce(function(changednum,item){
+    return changednum + item["Home Team Goals"] + item["Away Team Goals"]
+},0);
+return (average/getFinalsCB.length).toFixed(2);
 }
-
+// console.log(getAverageGoals(getFinals(fifaData));
 
 
 
